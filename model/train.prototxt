@@ -1,10 +1,5 @@
-name: "MOBILENET"
-#  transform_param {
-#    scale: 0.017
-#    mirror: false
-#    crop_size: 224
-#    mean_value: [103.94,116.78,123.68]
-#  }
+name: "MOBILENET-V1"
+
 layer {
   name: "data"
   type: "Python"
@@ -17,7 +12,7 @@ layer {
   python_param {
  	module: "myDataLayer" 
 	layer: "Data_Layer_train"
-  	param_str: '{"mirror": True, "illumination": True, "crop_size": (112,112), "batch_size": 384,  "max_rotate_angle": 30, "src_file": "/workspace/mnt/group/face/chendan/CelebA/code/mobilenet_attributev1_age_gender0127/src/train.txt","img_basepath": "/workspace/mnt/group/face/chendan/CelebA/code/eight-attributes/images/images_Attribute_Aligned_200x150"}'
+  	param_str: '{"mirror": True, "illumination": True, "crop_size": (112,112), "batch_size": 384,  "max_rotate_angle": 30, "src_file": "src/train.txt","img_basepath": "./images"}'
    	}
 }
 
@@ -34,7 +29,7 @@ layer {
   python_param {
         module: "myDataLayer"
         layer: "Data_Layer_train"
-        param_str: '{"mirror": False, "illumination": True, "crop_size": (112,112), "batch_size": 128, "max_rotate_angle": 30,"src_file": "/workspace/mnt/group/face/chendan/CelebA/code/mobilenet_attributev1_age_gender0127/src/validation.txt", "img_basepath": "/workspace/mnt/group/face/chendan/CelebA/code/eight-attributes/images/images_Attribute_Aligned_200x150"}'
+        param_str: '{"mirror": False, "illumination": True, "crop_size": (112,112), "batch_size": 128, "max_rotate_angle": 30,"src_file": "src/validation.txt", "img_basepath": "/images"}'
         }
 }
 
@@ -63,18 +58,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv1"
   top: "conv1"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -136,18 +120,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv2_1/dw"
   top: "conv2_1/dw"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -207,18 +180,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv2_1/sep"
   top: "conv2_1/sep"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -280,18 +242,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv2_2/dw"
   top: "conv2_2/dw"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -351,18 +302,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv2_2/sep"
   top: "conv2_2/sep"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -424,18 +364,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv3_1/dw"
   top: "conv3_1/dw"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -495,18 +424,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv3_1/sep"
   top: "conv3_1/sep"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -568,18 +486,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv3_2/dw"
   top: "conv3_2/dw"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -639,18 +546,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv3_2/sep"
   top: "conv3_2/sep"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -712,18 +608,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv4_1/dw"
   top: "conv4_1/dw"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -783,18 +668,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv4_1/sep"
   top: "conv4_1/sep"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -856,18 +730,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv4_2/dw"
   top: "conv4_2/dw"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -927,18 +790,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv4_2/sep"
   top: "conv4_2/sep"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -1000,18 +852,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv5_1/dw"
   top: "conv5_1/dw"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -1071,18 +912,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv5_1/sep"
   top: "conv5_1/sep"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -1144,18 +974,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv5_2/dw"
   top: "conv5_2/dw"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -1215,18 +1034,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv5_2/sep"
   top: "conv5_2/sep"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -1288,18 +1096,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv5_3/dw"
   top: "conv5_3/dw"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -1359,18 +1156,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv5_3/sep"
   top: "conv5_3/sep"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -1432,18 +1218,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv5_4/dw"
   top: "conv5_4/dw"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -1503,18 +1278,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv5_4/sep"
   top: "conv5_4/sep"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -1576,18 +1340,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv5_5/dw"
   top: "conv5_5/dw"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -1647,18 +1400,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv5_5/sep"
   top: "conv5_5/sep"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -1720,18 +1462,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv5_6/dw"
   top: "conv5_6/dw"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -1791,18 +1522,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv5_6/sep"
   top: "conv5_6/sep"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -1864,18 +1584,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv6/dw"
   top: "conv6/dw"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -1935,18 +1644,7 @@ layer {
   type: "BatchNorm"
   bottom: "conv6/sep"
   top: "conv6/sep"
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
-#  param {
-#    lr_mult: 0
-#    decay_mult: 0
-#  }
+
   batch_norm_param {
     use_global_stats: false
     eps: 1e-5
@@ -1992,31 +1690,7 @@ layer {
   }
 }
 
-#layer {
-#  name: "fc7"
-#  type: "Convolution"
-#  bottom: "pool6"
-#  top: "fc7"
-#  param {
-#    lr_mult: 1
-#    decay_mult: 1
-#  }
-#  param {
-#    lr_mult: 2
-#    decay_mult: 0
-#  }
-#  convolution_param {
-#    num_output: 4
-#    kernel_size: 1
-#    weight_filler {
-#      type: "msra"
-#    }
-#    bias_filler {
-#      type: "constant"
-#      value: 0
-#    }
-#  }
-#}
+
 
 ########  gender class ######
 layer {
@@ -2051,6 +1725,9 @@ layer {
   bottom: "cls_gender"
   bottom: "gender_label"
   top: "loss_gender"
+  loss_param{
+    ignore_label: -1
+  }
   loss_weight: 10
   include {
     phase: TRAIN
@@ -2066,8 +1743,6 @@ layer {
     phase: TEST
   }
 }
-
-
 
 #########   age reg   #########
 layer {
@@ -2102,6 +1777,9 @@ layer {
   bottom: "age_value"
   bottom: "age_pre"
   top: "loss"
+  loss_param{
+    ignore_label: -1
+  }
   loss_weight: 1
   include {
     phase: TRAIN
