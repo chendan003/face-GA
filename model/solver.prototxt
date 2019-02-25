@@ -1,0 +1,21 @@
+net: "/workspace/mnt/group/face/chendan/CelebA/code/mobilenet_attributev1_age_gender0127/model/train.prototxt"
+test_iter: 52   #  batch_size=128 
+test_interval: 540   #/384 =135  four epoch    
+test_initialization: false
+display: 20
+base_lr: 0.01
+#lr_policy: "poly"
+lr_policy: "multistep"
+stepvalue:  5400
+stepvalue:  10800
+stepvalue:  16200
+stepvalue:  21600
+#power: 1.0
+gamma: 0.1
+max_iter: 40000  #100 epoch
+momentum: 0.9
+weight_decay: 0.0005 
+snapshot: 540
+snapshot_prefix: "/workspace/mnt/group/face/chendan/CelebA/code/mobilenet_attributev1_age_gender0127/save_model_10/mobilenet_age_reg"
+solver_mode: GPU
+
